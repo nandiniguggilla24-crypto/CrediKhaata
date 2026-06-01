@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -15,58 +15,16 @@ function App() {
   return (
     <AuthProvider>
       <CreditProvider>
-        <BrowserRouter>
-          <Routes>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-            {/* Authentication */}
-
-            <Route
-              path="/"
-              element={<Login />}
-            />
-
-            <Route
-              path="/signup"
-              element={<Signup />}
-            />
-
-            {/* Dashboard */}
-
-            <Route
-              path="/dashboard"
-              element={<Dashboard />}
-            />
-
-            {/* Customer */}
-
-            <Route
-              path="/add-customer"
-              element={<AddCustomer />}
-            />
-
-            {/* Loan */}
-
-            <Route
-              path="/add-loan"
-              element={<AddLoan />}
-            />
-
-            {/* Repayment */}
-
-            <Route
-              path="/add-repayment"
-              element={<AddRepayment />}
-            />
-
-            {/* Customer Details */}
-
-            <Route
-              path="/customer/:id"
-              element={<CustomerDetails />}
-            />
-
-          </Routes>
-        </BrowserRouter>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/add-customer" element={<AddCustomer />} />
+          <Route path="/add-loan" element={<AddLoan />} />
+          <Route path="/add-repayment" element={<AddRepayment />} />
+          <Route path="/customer/:id" element={<CustomerDetails />} />
+        </Routes>
       </CreditProvider>
     </AuthProvider>
   );
